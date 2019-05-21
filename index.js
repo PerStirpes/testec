@@ -11,8 +11,7 @@ const redisConfig = {
 const store = new LaunchDarkly.RedisFeatureStore(redisConfig);
 
 const ldConfig = {
-    feature_store: store,
-    useLdd: true
+    feature_store: store
 };
 
 var ldClient = LaunchDarkly.init(process.env.LAUNCHDARKLY_SDK_KEY, ldConfig);
