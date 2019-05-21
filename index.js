@@ -22,7 +22,7 @@ logger =
 );
 
 const ldConfig = {
-    feature_store: store,
+    featureStore: store,
     useLdd: true,
     logger: winston
 };
