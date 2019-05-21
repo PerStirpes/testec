@@ -10,9 +10,19 @@ const redisConfig = {
 
 const store = new LaunchDarkly.RedisFeatureStore(redisConfig);
 
+logger =
+  new winston.Logger({
+    level: "debug",
+    transports: [
+      new(winston.transports.Console)(),
+    ]
+  }
+);
+
 const ldConfig = {
     feature_store: store,
-    useLdd: true
+    useLdd: true,
+    logger: winston
 };
 
 var ldClient = LaunchDarkly.init(process.env.LAUNCHDARKLY_SDK_KEY, ldConfig);
