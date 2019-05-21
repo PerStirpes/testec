@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = 8081
 var LaunchDarkly = require('launchdarkly-node-server-sdk');
+var winston = require('winston');
 
 const redisConfig = {
     port: process.env.ELASTICACHE_PORT,
