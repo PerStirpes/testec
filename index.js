@@ -23,27 +23,28 @@ var customerFeatureHtml = '';
 ldClient.once('ready', () => {
 
     ldClient.variation("customer-login-enabled", {}, false, function(err, customerLoginEnabled) {
-        if (err)
+        /*if (err)
         {
             customerFeatureHtml = `Error getting customerLoginEnabled: ${err.message}`
         }
         else
-        {
+        {*/
             customerFeatureHtml = `customerLoginEnabled: ${customerLoginEnabled}`
-        }
+        //}
+
+        var html = `<html>
+        <body>
+            <div>Elasticache Endpoint: ${process.env.ELASTICACHE_ENDPOINT}</div>
+            <div>Elasticache Port: ${process.env.ELASTICACHE_PORT}</div>
+            <div>${customerFeatureHtml}</div>
+        </body>`
+
+        app.get('/', (req, res) => res.send(html))
+
     });
 
     ldClient.close();
 });
-
-var html = `<html>
-            <body>
-                <div>Elasticache Endpoint: ${process.env.ELASTICACHE_ENDPOINT}</div>
-                <div>Elasticache Port: ${process.env.ELASTICACHE_PORT}</div>
-                <div>${customerFeatureHtml}</div>
-            </body>`
-
-app.get('/', (req, res) => res.send(html))
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
