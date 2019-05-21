@@ -4,13 +4,13 @@ const port = 8081
 var LaunchDarkly = require('launchdarkly-node-server-sdk');
 var winston = require('winston');
 
-const redisConfig = {
-    url: `redis://${process.env.ELASTICACHE_ENDPOINT}:${process.env.ELASTICACHE_PORT}`,
-    /*port: process.env.ELASTICACHE_PORT,
-    host: process.env.ELASTICACHE_ENDPOINT*/
+var redisConfig = {
+    //url: `redis://${process.env.ELASTICACHE_ENDPOINT}:${process.env.ELASTICACHE_PORT}`,
+    port: process.env.ELASTICACHE_PORT,
+    host: process.env.ELASTICACHE_ENDPOINT
 };
 
-const store = new LaunchDarkly.RedisFeatureStore(redisConfig);
+var store = new LaunchDarkly.RedisFeatureStore(redisConfig);
 
 logger =
   new winston.Logger({
@@ -21,7 +21,7 @@ logger =
   }
 );
 
-const ldConfig = {
+var ldConfig = {
     featureStore: store,
     useLdd: true,
     logger: logger
