@@ -11,7 +11,8 @@ const redisConfig = {
 const store = new LaunchDarkly.RedisFeatureStore(redisConfig);
 
 const ldConfig = {
-    feature_store: store
+    feature_store: store,
+    useLdd: true
 };
 
 var ldClient = LaunchDarkly.init(process.env.LAUNCHDARKLY_SDK_KEY, ldConfig);
@@ -22,14 +23,7 @@ var customerFeatureHtml = '';
 ldClient.once('ready', () => {
 
     ldClient.variation("customer-login-enabled", {}, false, function(err, customerLoginEnabled) {
-        /*if (err)
-        {
-            customerFeatureHtml = `Error getting customerLoginEnabled: ${err.message}`
-        }
-        else
-        {*/
-            customerFeatureHtml = `customerLoginEnabled: ${customerLoginEnabled}`
-        //}
+        customerFeatureHtml = `customerLoginEnabled: ${customerLoginEnabled}`
 
         var html = `<html>
         <body>
