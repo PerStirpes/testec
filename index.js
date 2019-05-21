@@ -30,7 +30,7 @@ ldClient.once('ready', () => {
         {
             customerFeatureHtml = `customerLoginEnabled: ${customerLoginEnabled}`
         }
-    })
+    });
 
     ldClient.close();
 });
