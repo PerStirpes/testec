@@ -24,7 +24,7 @@ logger =
 const ldConfig = {
     featureStore: store,
     useLdd: true,
-    logger: winston
+    logger: logger
 };
 
 var ldClient = LaunchDarkly.init(process.env.LAUNCHDARKLY_SDK_KEY, ldConfig);
