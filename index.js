@@ -8,7 +8,6 @@ const redisConfig = {
     host: process.env.ELASTICACHE_ENDPOINT
 };
 
-/*
 const store = new LaunchDarkly.RedisFeatureStore(redisConfig);
 
 const ldConfig = {
@@ -17,12 +16,9 @@ const ldConfig = {
 };
 
 var ldClient = LaunchDarkly.init(process.env.LAUNCHDARKLY_SDK_KEY, ldConfig);
-*/
 
 var customerLoginEnabled = false;
 var customerFeatureHtml = '';
-
-/*
 
 ldClient.once('ready', () => {
 
@@ -39,7 +35,6 @@ ldClient.once('ready', () => {
 
     ldClient.close();
 });
-*/
 
 var html = `<html>
             <body>
