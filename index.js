@@ -4,7 +4,7 @@ var store = new LaunchDarkly.RedisFeatureStore(redisOptions)
 var config = {feature_store: store, offline: true}
 
 // SDK key is not required when in offline mode
-var ldClient = LaunchDarkly.init(process.env.LAUNCHDARKLY_SDK_KEY, {config})
+var ldClient = LaunchDarkly.init(null, {config});
 
 ldClient.on('ready', function() {
  console.log("The LaunchDarkly SDK is now initialized with flag configurations stored in redis.");
