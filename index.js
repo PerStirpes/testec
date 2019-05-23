@@ -1,5 +1,5 @@
 var LaunchDarkly = require('launchdarkly-node-server-sdk');
-var redisOptions = {port: process.env.REDIS_PORT, host: process.env.REDIS_ENDPOINT}
+var redisOptions = {port: process.env.ELASTICACHE_PORT, host: process.env.ELASTICACHE_ENDPOINT}
 var store = new LaunchDarkly.RedisFeatureStore(redisOptions)
 var config = {feature_store: store, offline: true}
 
