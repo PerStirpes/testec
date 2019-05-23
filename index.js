@@ -7,13 +7,11 @@ var config = {feature_store: store, offline: true}
 var ldClient = LaunchDarkly.init(null, {config})
 
 ldClient.on('ready', function() {
- console.log("The LaunchDarkly SDK is now initialized with flag configurations stored in redis.")
+ console.log("The LaunchDarkly SDK is now initialized with flag configurations stored in redis.");
 
-  var customerLoginEnabled = false;
- 
   ldClient.variation("customer-login-enabled", {}, false, function(err, customerLoginEnabled) {
-    console.log(`customerLoginEnabled = ${customerLoginEnabled}}`)
+    console.log(`customerLoginEnabled = ${customerLoginEnabled}}`);
   });
 
- ldClient.close() 
+ ldClient.close();
 })
