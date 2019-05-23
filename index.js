@@ -10,7 +10,7 @@ ldClient.on('ready', function() {
  console.log("The LaunchDarkly SDK is now initialized with flag configurations stored in redis.");
 
   ldClient.variation("customer-login-enabled", {}, false, function(err, customerLoginEnabled) {
-    console.log(`customerLoginEnabled = ${customerLoginEnabled}}`);
+    console.log(`customerLoginEnabled = ${customerLoginEnabled}`);
   });
 
  ldClient.close();
